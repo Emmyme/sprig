@@ -17,13 +17,13 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "codelib",
-		Width:  1024,
-		Height: 768,
+		Title:  "Sprig - Code Manager",
+		Width:  800,
+		Height: 600,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
-		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
+		BackgroundColour: &options.RGBA{R: 15, G: 23, B: 42, A: 1}, // slate-900
 		OnStartup:        app.startup,
 		Bind: []interface{}{
 			app,

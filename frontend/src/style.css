@@ -1,26 +1,289 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+}
+
+/* CSS Variables for Theme System */
+:root {
+  /* Dark theme - Deep blue-tinted dark */
+  --bg-primary: #1b1b28; /* Deep blue-gray base */
+  --bg-secondary: #16161f; /* Darker blue-gray */
+  --bg-tertiary: #2a2a3a; /* Medium blue-gray */
+  --bg-hover: #3a3a4a; /* Lighter blue-gray */
+  --border-color: #4a4a5a; /* Blue-tinted border */
+  --border-hover: #5a5a6a; /* Lighter border */
+  --text-primary: #f5f0ff; /* Soft lavender white */
+  --text-secondary: #d8c9f0; /* Light lavender */
+  --text-muted: #b8a8cc; /* Muted lavender */
+
+  /* Accent Colors - True Pastels */
+  --blue-primary: #c4b5fd; /* Pastel lavender-blue */
+  --blue-hover: #d8bfff; /* Lighter lavender */
+  --blue-light: rgba(196, 181, 253, 0.2);
+  --blue-text: #c4b5fd;
+
+  --emerald-primary: #b5f4d1; /* Pastel mint */
+  --emerald-hover: #d1f9e6; /* Lighter mint */
+  --emerald-light: rgba(181, 244, 209, 0.2);
+
+  --red-primary: #ffc4d6; /* Pastel pink */
+  --red-hover: #ffd6e3; /* Lighter pink */
+  --red-light: rgba(255, 196, 214, 0.2);
+
+  --yellow-primary: #ffd9a0; /* Pastel peach */
+  --yellow-hover: #ffe4b8; /* Lighter peach */
+  --yellow-light: rgba(255, 217, 160, 0.2);
+
+  --purple-primary: #e5b8f4; /* Pastel purple */
+  --purple-hover: #eeccf7; /* Lighter purple */
+  --purple-light: rgba(229, 184, 244, 0.2);
+
+  --cyan-primary: #a8e6e2; /* Pastel cyan */
+  --cyan-hover: #c2f0ed; /* Lighter cyan */
+  --cyan-light: rgba(168, 230, 226, 0.2);
+}
+
+/* Light theme - Soft Candy Pastels */
+.light-theme {
+  --bg-primary: #fafafa; /* Clean light gray */
+  --bg-secondary: #ffffff; /* Pure white */
+  --bg-tertiary: #f5f5f5; /* Very light gray */
+  --bg-hover: #eeeeee; /* Light gray */
+  --border-color: #e0e0e0; /* Soft gray border */
+  --border-hover: #bdbdbd; /* Medium gray border */
+  --text-primary: #3d2e52; /* Deep purple */
+  --text-secondary: #6b4d8a; /* Medium purple */
+  --text-muted: #9377b5; /* Soft purple */
+}
+
+/* Utility Classes */
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+.bg-tertiary {
+  background-color: var(--bg-tertiary);
+}
+.text-primary {
+  color: var(--text-primary);
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-muted {
+  color: var(--text-muted);
+}
+.border-main {
+  border-color: var(--border-color);
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--blue-primary);
+  color: #1b1b28;
+}
+.btn-primary:hover {
+  background-color: var(--blue-hover);
+}
+
+.light-theme .btn-primary {
+  color: #2c2c2c;
+}
+
+.btn-emerald {
+  background-color: var(--emerald-primary);
+  color: #1b1b28;
+}
+.btn-emerald:hover {
+  background-color: var(--emerald-hover);
+}
+
+.light-theme .btn-emerald {
+  color: #2c2c2c;
+}
+
+.btn-danger {
+  background-color: var(--red-primary);
+  color: #1b1b28;
+}
+.btn-danger:hover {
+  background-color: var(--red-hover);
+}
+
+.light-theme .btn-danger {
+  color: #2c2c2c;
+}
+
+.btn-secondary {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+.btn-secondary:hover {
+  background-color: var(--border-color);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+.card:hover {
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 20px rgba(196, 181, 253, 0.15);
+}
+
+/* Badge Styles */
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.badge-blue {
+  background-color: var(--blue-light);
+  color: var(--blue-primary);
+}
+
+.light-theme .badge-blue {
+  background-color: var(--blue-primary);
+  color: #7c5fd8;
+}
+
+.badge-emerald {
+  background-color: var(--emerald-light);
+  color: var(--emerald-primary);
+}
+
+.light-theme .badge-emerald {
+  background-color: var(--emerald-primary);
+  color: #2d7a5a;
+}
+
+.badge-pink {
+  background-color: var(--red-light);
+  color: var(--red-primary);
+}
+
+.light-theme .badge-pink {
+  background-color: var(--red-primary);
+  color: #c7417a;
+}
+
+.badge-peach {
+  background-color: var(--yellow-light);
+  color: var(--yellow-primary);
+}
+
+.light-theme .badge-peach {
+  background-color: var(--yellow-primary);
+  color: #b8762d;
+}
+
+.badge-purple {
+  background-color: var(--purple-light);
+  color: var(--purple-primary);
+}
+
+.light-theme .badge-purple {
+  background-color: var(--purple-primary);
+  color: #8b3ba8;
+}
+
+.badge-cyan {
+  background-color: var(--cyan-light);
+  color: var(--cyan-primary);
+}
+
+.light-theme .badge-cyan {
+  background-color: var(--cyan-primary);
+  color: #3d8580;
+}
+
 html {
-    background-color: rgba(27, 38, 54, 1);
-    text-align: center;
-    color: white;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 body {
-    margin: 0;
-    color: white;
-    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
 
-@font-face {
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: 400;
-    src: local(""),
-    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+#app {
+  height: 100vh;
+  text-align: center;
 }
 
-#app {
-    height: 100vh;
-    text-align: center;
+/* Line clamp utilities */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar Styles */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--blue-primary),
+    var(--purple-primary)
+  );
+  border-radius: 10px;
+  border: 2px solid var(--bg-secondary);
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--blue-hover), var(--purple-hover));
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-secondary);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue-primary) var(--bg-secondary);
 }
