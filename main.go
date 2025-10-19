@@ -17,14 +17,17 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "Sprig - Code Manager",
-		Width:  800,
-		Height: 600,
+		Title:     "Sprig - Code Manager",
+		Width:     1000,
+		Height:    700,
+		MinWidth:  800,
+		MinHeight: 600,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
 		BackgroundColour: &options.RGBA{R: 15, G: 23, B: 42, A: 1}, // slate-900
 		OnStartup:        app.startup,
+		Frameless:        true,
 		Bind: []interface{}{
 			app,
 		},

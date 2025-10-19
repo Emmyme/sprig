@@ -3,6 +3,7 @@ import SearchBar from "./components/SearchBar";
 import FilterBar from "./components/FilterBar";
 import List from "./components/List";
 import AddItemForm from "./components/AddItemForm";
+import TitleBar from "./components/TitleBar";
 import "./App.css";
 
 function App() {
@@ -13,7 +14,6 @@ function App() {
   const [refreshTrigger, setRefreshTrigger] = useState(0);
   const [isLightTheme, setIsLightTheme] = useState(false);
 
-  // Load theme preference from localStorage and apply it to document
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const theme = savedTheme || "dark";
@@ -24,7 +24,6 @@ function App() {
     }
   }, []);
 
-  // Toggle theme
   const toggleTheme = () => {
     const isLight = document.documentElement.classList.contains("light-theme");
     if (isLight) {
@@ -63,15 +62,15 @@ function App() {
   };
 
   const handleItemAdded = () => {
-    // Trigger refresh of the list
     setRefreshTrigger((prev) => prev + 1);
     setShowAddForm(false);
   };
 
   return (
     <div className="min-h-screen bg-primary">
+      <TitleBar />
       <header
-        className="border-b py-2 px-4"
+        className="border-b py-3 px-4"
         style={{
           background:
             "linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%)",
@@ -107,7 +106,6 @@ function App() {
               title="Toggle theme"
             >
               {isLightTheme ? (
-                // Moon icon for light mode (click to go dark)
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -122,7 +120,6 @@ function App() {
                   />
                 </svg>
               ) : (
-                // Sun icon for dark mode (click to go light)
                 <svg
                   className="w-6 h-6"
                   fill="none"
