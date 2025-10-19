@@ -6,7 +6,7 @@
 
 A desktop application for managing your personal code library. Save, organize, search, and retrieve code snippets, functions, and templates with easy tagging and categorization.
 
-Built with [Wails](https://wails.io/) (Go + React). Also includes a companion VS Code extension for seamless integration with your editor.
+Built with [Wails](https://wails.io/) (Go + React). Also includes a companion VS Code extension for seamless integration with your editor: [Sprig- VS Code Extension](https://marketplace.visualstudio.com/items?itemName=Emmyme.sprig)
 
 ![Sprig App](assets/darkmode2.png)
 
