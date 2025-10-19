@@ -25,7 +25,7 @@ For other platforms or development:
 
 2. **Clone and Build**
    ```bash
-   git clone https://github.com/yourusername/sprig.git
+   git clone https://github.com/Emmyme/sprig.git
    cd sprig
    wails build
    ```
